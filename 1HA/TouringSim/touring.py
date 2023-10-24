@@ -20,7 +20,8 @@ class TouringMachine:
     
     def execute(self, band):
         s = self.begin_state
-        i = 0
+        i = 1
+        band.insert(0,"B")
         band.append("B")
         while(s!=self.end_state):
             t = self.transitions[(s,band[i])]
@@ -31,6 +32,7 @@ class TouringMachine:
             elif(t[2] == 'L'):
                 i-=1
         band.pop()
+        band.pop(0)
         
         return band
     
