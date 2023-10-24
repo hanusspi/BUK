@@ -8,7 +8,7 @@
 1 x 1 x R
 1 y 1 y R
 1 # 1 # R
-1 $ 2 $ L
+1 B 2 B L
 2 0 3 x L
 2 1 5 y L
 2 x 2 x L
@@ -35,7 +35,7 @@
 7 B 1 1 N
 8 x 8 x R
 8 y 8 y R
-8 $ 9 $ L
+8 B 9 B L
 9 0 9 0 L
 9 1 9 1 L
 9 x 9 0 L

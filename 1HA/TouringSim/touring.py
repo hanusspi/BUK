@@ -1,3 +1,17 @@
+def print_progress(input_list, index):
+    if 0 <= index < len(input_list):
+        result = ""
+        for i in range(len(input_list)):
+            if i == index:
+                result += "["
+                result += str(input_list[i])
+                result += "]"
+            else:
+                result += str(input_list[i])
+        print(result)
+    else:
+        print("Index is out of range.")
+
 class TouringMachine:
     def __init__(self, file_path):
         try:
@@ -29,8 +43,14 @@ class TouringMachine:
             s = t[0]
             if(t[2] == 'R'):
                 i += 1
+                if(i>=len(band)):
+                    band.append('B')
             elif(t[2] == 'L'):
                 i-=1
+                if(i<=0):
+                    band.insert(0,'B')
+                    i+=1
+            print_progress(band, i)
         band.pop()
         band.pop(0)
         
