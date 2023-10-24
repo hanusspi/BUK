@@ -30,7 +30,7 @@ class TouringMachine:
                     # fit the state transition in dictionary entries (tuple of old state and symbol for identifing)
                     # triple for new state, new symbol and next operation
                     tmp = line.strip("\n").split(" ")
-                    self.transitions[int(tmp[0]), tmp[1]]=(int(tmp[2]), tmp[3], tmp[4])  # 'end='' to avoid double spacing (lines already have newline characters)
+                    self.transitions[int(tmp[0]), tmp[1]]=(int(tmp[2]), tmp[3], tmp[4]) 
         except FileNotFoundError:
             print(f"File '{file_path}' not found")
         except Exception as e:
@@ -65,14 +65,7 @@ class TouringMachine:
         band.pop(0)
         
         return band
-    
-
         
-             
-
-
-
-    
 file_path = input("Enter File Path: ")
 band_input = input("Enter Band: ")
 band = list(band_input)
