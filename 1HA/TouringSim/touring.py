@@ -1,5 +1,5 @@
 #log band and current symbol
-def print_progress(input_list, index):
+def progress(input_list, index):
     if 0 <= index < len(input_list):
         result = ""
         for i in range(len(input_list)):
@@ -9,7 +9,7 @@ def print_progress(input_list, index):
                 result += "]"
             else:
                 result += str(input_list[i])
-        print(result)
+        return result
     else:
         print("Index is out of range.")
 
@@ -30,7 +30,7 @@ class TouringMachine:
                     # fit the state transition in dictionary entries (tuple of old state and symbol for identifing)
                     # triple for new state, new symbol and next operation
                     tmp = line.strip("\n").split(" ")
-                    self.transitions[int(tmp[0]), tmp[1]]=(int(tmp[2]), tmp[3], tmp[4]) 
+                    self.transitions[int(tmp[0]), tmp[1]]=(int(tmp[2]), tmp[3], tmp[4])  # 'end='' to avoid double spacing (lines already have newline characters)
         except FileNotFoundError:
             print(f"File '{file_path}' not found")
         except Exception as e:
@@ -45,6 +45,7 @@ class TouringMachine:
         #run until final state is reached
         while(s!=self.end_state):
             #search fitting transition profile from dict
+            print(progress(band, i))
             t = self.transitions[(s,band[i])]
             #overwrite band entry
             band[i] = t[1]
@@ -60,11 +61,9 @@ class TouringMachine:
                 if(i<=0):
                     band.insert(0,'B')
                     i+=1
-            print_progress(band, i)
-        band.pop()
-        band.pop(0)
+        print(progress(band, i))    
         
-        return band
+        return progress(band, i)
         
 file_path = input("Enter File Path: ")
 band_input = input("Enter Band: ")
